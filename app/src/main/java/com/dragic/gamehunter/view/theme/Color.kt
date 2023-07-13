@@ -1,4 +1,4 @@
-package com.dragic.gamehunter.ui.theme
+package com.dragic.gamehunter.view.theme
 
 import androidx.compose.ui.graphics.Color
 

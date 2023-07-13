@@ -1,4 +1,4 @@
-package com.dragic.gamehunter.ui.theme
+package com.dragic.gamehunter.view.theme
 
 import android.app.Activity
 import android.os.Build
