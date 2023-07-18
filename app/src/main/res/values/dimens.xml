@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="home_top_deals_margin">8dp</dimen>
+    <dimen name="deal_card_height">100dp</dimen>
+    <dimen name="deal_card_padding">8dp</dimen>
+    <dimen name="deal_card_radius">6dp</dimen>
+    <dimen name="deal_card_title_top_margin">6dp</dimen>
+    <dimen name="top_bar_height">60dp</dimen>
+    <dimen name="top_bar_icon_padding">16dp</dimen>
+    <dimen name="top_bar_icon_size">48dp</dimen>
+    <dimen name="bottom_bar_icon_padding">10dp</dimen>
+    <dimen name="deal_card_image_size">12dp</dimen>
+    <dimen name="deal_card_text_size">14sp</dimen>
+    <dimen name="deal_image_width">140dp</dimen>
+    <dimen name="deal_save_percentage_padding">4dp</dimen>
+</resources>

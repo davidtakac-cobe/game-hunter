@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">GameHunter</string>
+    <string name="top_deals">Top Deals:</string>
+    <string name="deal_image_content_description">Deal Image</string>
+    <string name="deal_card_rating_label">"Deal rating: "</string>
+    <string name="back_arrow_content_description">back navigation</string>
+    <string name="search_icon_content_description">Search icon</string>
+    <string name="sort_icon_content_description">Sort icon</string>
 </resources>

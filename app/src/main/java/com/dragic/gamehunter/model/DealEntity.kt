@@ -1,6 +1,6 @@
 package com.dragic.gamehunter.model
 
-data class DealResponse(
+data class DealEntity(
     val id: Int,
     val gameTitle: String,
     val salePrice: Double,
