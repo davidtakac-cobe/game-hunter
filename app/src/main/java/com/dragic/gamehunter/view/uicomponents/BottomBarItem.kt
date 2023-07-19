@@ -34,7 +34,7 @@ fun BottomBarItem(
         )
         Text(
             text = title,
-            style = Typography.labelSmall,
+            style = Typography.labelMedium,
             color = MaterialTheme.colorScheme.primary
         )
     }

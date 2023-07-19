@@ -25,7 +25,7 @@ val Typography = Typography(
         fontWeight = FontWeight.Bold,
         fontSize = 28.sp,
     ),
-    labelSmall = TextStyle(
+    labelMedium = TextStyle(
         fontWeight = FontWeight.Bold,
         fontSize = 16.sp,
     ),
@@ -40,5 +40,12 @@ val Typography = Typography(
         textDecoration = TextDecoration.LineThrough,
         fontWeight = FontWeight.Light,
         color = Color.Gray
+    ),
+    titleMedium = TextStyle(
+        fontWeight = FontWeight.Bold,
+        fontSize = 20.sp,
+    ),
+    labelSmall = TextStyle(
+        fontSize = 14.sp
     )
 )
