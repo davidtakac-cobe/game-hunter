@@ -28,7 +28,9 @@ fun Navigation(
             })
         }
         composable(route = Favorites.route) {
-            FavoritesScreen()
+            FavoritesScreen(onGameClick = { gameId ->
+                navController.navigateToDetails(gameId)
+            })
         }
         composable(
             route = Details.routeWithArgs,

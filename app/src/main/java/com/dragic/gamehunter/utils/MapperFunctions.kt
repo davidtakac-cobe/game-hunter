@@ -3,6 +3,7 @@ package com.dragic.gamehunter.utils
 import com.dragic.gamehunter.model.Deal
 import com.dragic.gamehunter.model.DealEntity
 import com.dragic.gamehunter.model.GameDetailsEntity
+import com.dragic.gamehunter.view.favorites.FavoriteGameViewState
 import com.dragic.gamehunter.view.gamedetails.DealDetailsViewState
 import com.dragic.gamehunter.view.gamedetails.ImageContentViewState
 import com.dragic.gamehunter.view.home.DealViewState
@@ -36,4 +37,11 @@ fun Deal.toDealDetailsViewState(): DealDetailsViewState =
         savePercentage = savePercentage,
         salePrice = salePrice,
         normalPrice = normalPrice,
+    )
+
+fun DealEntity.toFavoriteGameViewState(): FavoriteGameViewState =
+    FavoriteGameViewState(
+        dealId = id,
+        gameTitle = gameTitle,
+        thumbnail = thumbnail,
     )

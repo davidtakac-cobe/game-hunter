@@ -38,6 +38,11 @@ fun TopBar(
             .height(dimensionResource(id = R.dimen.top_bar_height))
             .background(MaterialTheme.colorScheme.primary)
     ) {
+        Text(
+            modifier = Modifier.align(Alignment.Center),
+            text = stringResource(id = R.string.app_name),
+            style = Typography.titleLarge
+        )
         if (currentScreenRoute == Details.routeWithArgs) {
             IconButton(
                 onClick = { onArrowBackClicked() },
@@ -54,11 +59,6 @@ fun TopBar(
                         .align(Alignment.CenterStart)
                 )
             }
-            Text(
-                modifier = Modifier.align(Alignment.Center),
-                text = stringResource(id = R.string.app_name),
-                style = Typography.titleLarge
-            )
         }
         if (currentScreenRoute == Home.route) {
             IconButton(
@@ -76,11 +76,6 @@ fun TopBar(
                         .align(Alignment.CenterStart)
                 )
             }
-            Text(
-                modifier = Modifier.align(Alignment.Center),
-                text = stringResource(id = R.string.app_name),
-                style = Typography.titleLarge
-            )
             IconButton(
                 onClick = { },
                 modifier = Modifier

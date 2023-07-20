@@ -11,4 +11,6 @@
     <string name="favorite_icon">Favorite icon</string>
     <string name="featured_deals">Featured deals:</string>
     <string name="deal_store_image_content_description">Store image</string>
+    <string name="favorite_games">Favorite games:</string>
+    <string name="favorite_game_content_description">Favorite game image</string>
 </resources>

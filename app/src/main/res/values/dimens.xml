@@ -24,4 +24,12 @@
     <dimen name="deal_details_card_padding">12dp</dimen>
     <dimen name="favorite_box_size">32dp</dimen>
     <dimen name="deal_store_image_padding">8dp</dimen>
+    <dimen name="favorites_games_top_margin">8dp</dimen>
+    <dimen name="favorite_game_horizontal_padding">24dp</dimen>
+    <dimen name="favorite_game_vertical_padding">24dp</dimen>
+    <dimen name="deal_card_title_horizontal_padding">14dp</dimen>
+    <dimen name="favorite_game_card_height">180dp</dimen>
+    <dimen name="favorite_game_card_radius">10dp</dimen>
+    <dimen name="favorite_game_card_horizontal_padding">18dp</dimen>
+    <dimen name="favorite_game_card_top_padding">8dp</dimen>
 </resources>
