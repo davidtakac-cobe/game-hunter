@@ -2,6 +2,7 @@ package com.dragic.gamehunter.view.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -9,6 +10,9 @@ import androidx.navigation.compose.composable
 import com.dragic.gamehunter.view.favorites.FavoritesScreen
 import com.dragic.gamehunter.view.gamedetails.GameDetailsScreen
 import com.dragic.gamehunter.view.home.HomeScreen
+import com.dragic.gamehunter.viewmodel.FavoritesViewModel
+import com.dragic.gamehunter.viewmodel.GameDetailsViewModel
+import com.dragic.gamehunter.viewmodel.HomeViewModel
 
 private const val DEAL_ID_DEFAULT_VALUE = 0
 
@@ -23,21 +27,30 @@ fun Navigation(
         modifier = modifier
     ) {
         composable(route = Home.route) {
-            HomeScreen(onDealClick = { dealId ->
-                navController.navigateToDetails(dealId)
-            })
+            val viewModel: HomeViewModel = hiltViewModel()
+            HomeScreen(
+                onDealClick = { dealId ->
+                    navController.navigateToDetails(dealId)
+                },
+                homeViewModel = viewModel
+            )
         }
         composable(route = Favorites.route) {
-            FavoritesScreen(onGameClick = { gameId ->
-                navController.navigateToDetails(gameId)
-            })
+            val viewModel: FavoritesViewModel = hiltViewModel()
+            FavoritesScreen(
+                onGameClick = { gameId ->
+                    navController.navigateToDetails(gameId)
+                },
+                favoritesViewModel = viewModel
+            )
         }
         composable(
             route = Details.routeWithArgs,
             arguments = Details.arguments
         ) {
+            val viewModel: GameDetailsViewModel = hiltViewModel()
             val dealId = it.arguments?.getInt(Details.detailsTypeArg) ?: DEAL_ID_DEFAULT_VALUE
-            GameDetailsScreen()
+            GameDetailsScreen(gameDetailsViewModel = viewModel)
         }
     }
 }

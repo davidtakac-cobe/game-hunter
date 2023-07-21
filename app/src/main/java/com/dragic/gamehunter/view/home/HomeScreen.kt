@@ -13,14 +13,13 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.dragic.gamehunter.R
-import com.dragic.gamehunter.model.DealDummyData
 import com.dragic.gamehunter.viewmodel.HomeViewModel
 
 @Composable
 fun HomeScreen(
     onDealClick: (Int) -> Unit,
     modifier: Modifier = Modifier,
-    homeViewModel: HomeViewModel = HomeViewModel(DealDummyData()),
+    homeViewModel: HomeViewModel,
 ) {
     Column {
         Spacer(modifier = Modifier.size(size = 20.dp))

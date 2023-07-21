@@ -14,7 +14,6 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.dragic.gamehunter.R
-import com.dragic.gamehunter.model.GameDetailsDummyData
 import com.dragic.gamehunter.view.theme.GameHunterTheme
 import com.dragic.gamehunter.view.theme.Typography
 import com.dragic.gamehunter.view.uicomponents.ImageContent
@@ -24,7 +23,7 @@ import com.dragic.gamehunter.viewmodel.GameDetailsViewModel
 @Composable
 fun GameDetailsScreen(
     modifier: Modifier = Modifier,
-    gameDetailsViewModel: GameDetailsViewModel = GameDetailsViewModel(GameDetailsDummyData())
+    gameDetailsViewModel: GameDetailsViewModel,
 ) {
     val gameData = gameDetailsViewModel.dummyGameInfo
     val dealData = gameDetailsViewModel.dummyDealList

@@ -1,10 +1,14 @@
 package com.dragic.gamehunter.viewmodel
 
-import com.dragic.gamehunter.model.DealDummyData
+import androidx.lifecycle.ViewModel
+import com.dragic.gamehunter.repository.DealRepository
 import com.dragic.gamehunter.utils.toDealViewState
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class HomeViewModel(
-    private val dummyData: DealDummyData,
-) {
-    val dealData = dummyData.deals.sortedByDescending { it.dealRating }.map { it.toDealViewState() }
+@HiltViewModel
+class HomeViewModel @Inject constructor(
+    private val repository: DealRepository,
+) : ViewModel() {
+    val dealData = repository.dealData().sortedByDescending { it.dealRating }.map { it.toDealViewState() }
 }

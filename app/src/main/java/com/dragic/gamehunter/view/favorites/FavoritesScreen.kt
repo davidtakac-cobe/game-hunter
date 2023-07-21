@@ -13,14 +13,13 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.dragic.gamehunter.R
-import com.dragic.gamehunter.model.DealDummyData
 import com.dragic.gamehunter.viewmodel.FavoritesViewModel
 
 @Composable
 fun FavoritesScreen(
     onGameClick: (Int) -> Unit,
     modifier: Modifier = Modifier,
-    favoritesViewModel: FavoritesViewModel = FavoritesViewModel(DealDummyData())
+    favoritesViewModel: FavoritesViewModel,
 ) {
     Column(
         modifier = modifier.fillMaxSize()

@@ -1,10 +1,14 @@
 package com.dragic.gamehunter.viewmodel
 
-import com.dragic.gamehunter.model.DealDummyData
+import androidx.lifecycle.ViewModel
+import com.dragic.gamehunter.repository.DealRepository
 import com.dragic.gamehunter.utils.toFavoriteGameViewState
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class FavoritesViewModel(
-    private val dealDummyData: DealDummyData
-) {
-    val favoriteGames = dealDummyData.deals.map { it.toFavoriteGameViewState() }
+@HiltViewModel
+class FavoritesViewModel @Inject constructor(
+    private val repository: DealRepository,
+) : ViewModel() {
+    val favoriteGames = repository.dealData().map { it.toFavoriteGameViewState() }
 }

@@ -1,6 +1,8 @@
 package com.dragic.gamehunter.model
 
-class GameDetailsDummyData {
+import javax.inject.Inject
+
+class GameDetailsDummyData @Inject constructor() {
 
     val data = GameDetailsEntity(
         info = GameInfo("Counter:Strike Global Offensive", ""),

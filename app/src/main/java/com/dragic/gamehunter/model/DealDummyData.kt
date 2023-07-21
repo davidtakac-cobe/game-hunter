@@ -1,6 +1,8 @@
 package com.dragic.gamehunter.model
 
-class DealDummyData {
+import javax.inject.Inject
+
+class DealDummyData @Inject constructor() {
     val deals: List<DealEntity> = listOf(
         DealEntity(1, "Counter Strike: Global Offensive", 3.5, 5.0, 15.0, 4.5, 5.0, "imageUrl"),
         DealEntity(2, "League of Legends", 4.5, 6.0, 20.0, 4.6, 6.0, "imageUrl"),
