@@ -1,7 +1,6 @@
 package com.dragic.gamehunter.di
 
-import com.dragic.gamehunter.model.DealDummyData
-import com.dragic.gamehunter.model.GameDetailsDummyData
+import com.dragic.gamehunter.networking.CheapSharkApi
 import com.dragic.gamehunter.repository.DealRepository
 import com.dragic.gamehunter.repository.DealRepositoryImpl
 import dagger.Module
@@ -16,7 +15,6 @@ object RepositoryModule {
 
     @Singleton
     @Provides
-    fun provideRepository(dealDummyData: DealDummyData, gameDetailsDummyData: GameDetailsDummyData): DealRepository =
-        DealRepositoryImpl(dealDummyData, gameDetailsDummyData)
-
+    fun provideRepository(cheapSharkApi: CheapSharkApi): DealRepository =
+        DealRepositoryImpl(cheapSharkApi)
 }

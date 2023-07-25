@@ -3,7 +3,7 @@ package com.dragic.gamehunter.model
 data class GameDetailsEntity(
     val info: GameInfo,
     val cheapestPrice: GameCheapestPrice,
-    val deals: List<Deal>,
+    val deals: List<GameDetailsDeal>,
 )
 
 data class GameInfo(
@@ -13,13 +13,13 @@ data class GameInfo(
 
 data class GameCheapestPrice(
     val price: String,
-    val date: Long,
+    val date: Int,
 )
 
-data class Deal(
-    val dealId: String,
+data class GameDetailsDeal(
     val storeId: String,
+    val dealId: String,
     val salePrice: String,
     val normalPrice: String,
-    val savePercentage: String,
+    val savings: Int,
 )

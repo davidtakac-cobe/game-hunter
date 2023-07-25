@@ -35,7 +35,7 @@ fun FavoritesScreen(
             style = MaterialTheme.typography.labelLarge
         )
         FavoriteGames(
-            favoriteGames = favoritesViewModel.favoriteGames,
+            favoriteGames = favoritesViewModel.dealData.value,
             onGameClick = onGameClick,
             modifier = Modifier
                 .padding(

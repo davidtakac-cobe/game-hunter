@@ -28,6 +28,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -73,20 +74,38 @@ fun DealCard(
                         .align(Alignment.CenterHorizontally)
                         .padding(top = dimensionResource(id = R.dimen.deal_card_title_top_margin)),
                     text = gameTitle,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
                     style = Typography.titleSmall
                 )
                 Spacer(modifier = Modifier.size(12.dp))
                 Row(
-                    verticalAlignment = Alignment.CenterVertically
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
                 ) {
-                    Text(
-                        text = stringResource(id = R.string.deal_card_rating_label),
-                        fontSize = dimensionResource(id = R.dimen.deal_card_text_size).value.sp
-                    )
-                    Text(
-                        text = dealRating,
-                        style = Typography.bodyMedium
-                    )
+                    Row {
+                        Text(
+                            text = stringResource(id = R.string.deal_card_rating_label),
+                            fontSize = dimensionResource(id = R.dimen.deal_card_text_size).value.sp
+                        )
+                        Text(
+                            text = dealRating,
+                            style = Typography.bodyMedium
+                        )
+                    }
+                    Row(
+                        modifier = Modifier.padding(end = dimensionResource(id = R.dimen.deal_card_padding))
+                    ) {
+                        Text(
+                            text = stringResource(id = R.string.deal_card_steam_rating_label),
+                            fontSize = dimensionResource(id = R.dimen.deal_card_text_size).value.sp
+                        )
+                        Text(
+                            text = steamRating,
+                            style = Typography.bodyMedium
+                        )
+                    }
                 }
                 Spacer(modifier = Modifier.size(12.dp))
                 Row(

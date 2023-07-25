@@ -1,26 +1,26 @@
 package com.dragic.gamehunter.repository
 
-import com.dragic.gamehunter.model.DealDummyData
 import com.dragic.gamehunter.model.DealEntity
-import com.dragic.gamehunter.model.GameDetailsDummyData
 import com.dragic.gamehunter.model.GameDetailsEntity
+import com.dragic.gamehunter.networking.CheapSharkApi
+import com.dragic.gamehunter.utils.toDealEntity
+import com.dragic.gamehunter.utils.toGameDetailsEntity
 import javax.inject.Inject
 import javax.inject.Singleton
 
 interface DealRepository {
 
-    fun dealData(): List<DealEntity>
+    suspend fun dealData(): List<DealEntity>
 
-    fun gameDetailsData(): GameDetailsEntity
+    suspend fun gameDetailsData(gameId: Int): GameDetailsEntity
 
 }
 
 @Singleton
 class DealRepositoryImpl @Inject constructor(
-    private val dealDummyData: DealDummyData,
-    private val gameDetailsDummyData: GameDetailsDummyData,
+    private val cheapSharkApi: CheapSharkApi,
 ) : DealRepository {
-    override fun dealData(): List<DealEntity> = dealDummyData.deals
+    override suspend fun dealData(): List<DealEntity> = cheapSharkApi.getAllDeals().map { it.toDealEntity() }
 
-    override fun gameDetailsData(): GameDetailsEntity = gameDetailsDummyData.data
+    override suspend fun gameDetailsData(gameId: Int): GameDetailsEntity = cheapSharkApi.getGameDetails(gameId).toGameDetailsEntity()
 }

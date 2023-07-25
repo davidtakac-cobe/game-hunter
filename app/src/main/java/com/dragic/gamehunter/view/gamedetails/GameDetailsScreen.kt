@@ -25,8 +25,8 @@ fun GameDetailsScreen(
     modifier: Modifier = Modifier,
     gameDetailsViewModel: GameDetailsViewModel,
 ) {
-    val gameData = gameDetailsViewModel.dummyGameInfo
-    val dealData = gameDetailsViewModel.dummyDealList
+    val gameData = gameDetailsViewModel.gameData.value
+    val dealData = gameDetailsViewModel.dealData.value
     GameHunterTheme {
         Column {
             Box(

@@ -34,7 +34,7 @@ fun HomeScreen(
         )
         Spacer(modifier = Modifier.size(8.dp))
         HomeDeals(
-            deals = homeViewModel.dealData,
+            deals = homeViewModel.dealData.value,
             onDealClick = { id ->
                 onDealClick(id)
             },

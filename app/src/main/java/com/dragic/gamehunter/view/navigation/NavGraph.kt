@@ -14,8 +14,6 @@ import com.dragic.gamehunter.viewmodel.FavoritesViewModel
 import com.dragic.gamehunter.viewmodel.GameDetailsViewModel
 import com.dragic.gamehunter.viewmodel.HomeViewModel
 
-private const val DEAL_ID_DEFAULT_VALUE = 0
-
 @Composable
 fun Navigation(
     navController: NavHostController,
@@ -49,7 +47,6 @@ fun Navigation(
             arguments = Details.arguments
         ) {
             val viewModel: GameDetailsViewModel = hiltViewModel()
-            val dealId = it.arguments?.getInt(Details.detailsTypeArg) ?: DEAL_ID_DEFAULT_VALUE
             GameDetailsScreen(gameDetailsViewModel = viewModel)
         }
     }

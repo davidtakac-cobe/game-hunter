@@ -1,12 +1,24 @@
 package com.dragic.gamehunter.networking
 
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class DealResponse(
-    val id: Int,
+    @SerialName("gameID")
+    val id: String,
+    @SerialName("title")
     val gameTitle: String,
-    val salePrice: Double,
-    val normalPrice: Double,
-    val savePercentage: Double,
-    val steamRating: Double,
-    val dealRating: Double,
+    @SerialName("salePrice")
+    val salePrice: String,
+    @SerialName("normalPrice")
+    val normalPrice: String,
+    @SerialName("savings")
+    val savings: String,
+    @SerialName("steamRatingPercent")
+    val steamRating: String,
+    @SerialName("dealRating")
+    val dealRating: String,
+    @SerialName("thumb")
     val thumbnail: String,
 )
