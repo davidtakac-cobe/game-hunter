@@ -1,6 +1,5 @@
 package com.dragic.gamehunter.view.uicomponents
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.focusable
@@ -26,12 +25,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
 import com.dragic.gamehunter.R
 import com.dragic.gamehunter.view.theme.CardContainerColor
 import com.dragic.gamehunter.view.theme.Green
@@ -59,11 +58,11 @@ fun DealCard(
         Row(
             modifier = Modifier.fillMaxSize()
         ) {
-            Image(
+            AsyncImage(
                 modifier = Modifier.width(dimensionResource(id = R.dimen.deal_image_width)),
-                painter = painterResource(id = R.drawable.random_thumbnail),
+                model = thumbnail,
                 contentDescription = stringResource(id = R.string.deal_image_content_description),
-                contentScale = ContentScale.FillBounds
+                contentScale = ContentScale.Crop
             )
             Spacer(modifier = Modifier.size(8.dp))
             Column(

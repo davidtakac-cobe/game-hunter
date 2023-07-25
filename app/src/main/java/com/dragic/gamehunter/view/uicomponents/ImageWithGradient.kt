@@ -1,6 +1,5 @@
 package com.dragic.gamehunter.view.uicomponents
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -12,8 +11,8 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import coil.compose.AsyncImage
 import com.dragic.gamehunter.R
 
 @Composable
@@ -28,8 +27,8 @@ fun ImageWithGradient(
                 .fillMaxWidth()
                 .height(dimensionResource(id = R.dimen.details_image_height))
         ) {
-            Image(
-                painter = painterResource(id = R.drawable.random_thumbnail),
+            AsyncImage(
+                model = thumbnail,
                 contentDescription = stringResource(id = R.string.deal_image_content_description),
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.matchParentSize()
