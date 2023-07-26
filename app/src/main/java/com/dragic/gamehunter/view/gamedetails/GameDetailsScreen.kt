@@ -25,30 +25,32 @@ fun GameDetailsScreen(
     modifier: Modifier = Modifier,
     gameDetailsViewModel: GameDetailsViewModel,
 ) {
-    val gameData = gameDetailsViewModel.gameData.value
-    val dealData = gameDetailsViewModel.dealData.value
+    val gameData = gameDetailsViewModel.gameData
+    val dealData = gameDetailsViewModel.dealData
     GameHunterTheme {
         Column {
             Box(
-                modifier = Modifier
+                modifier = modifier
                     .fillMaxWidth()
                     .height(dimensionResource(id = R.dimen.details_image_height))
             ) {
-                ImageWithGradient(
-                    thumbnail = gameData.thumbnail,
-                    content = {
-                        with(gameData) {
-                            ImageContent(
-                                gameTitle = gameTitle,
-                                lowestPrice = lowestPrice,
-                                dateLowestPrice = dateLowestPrice,
-                                isFavorite = isFavorite,
-                                onFavoriteSelected = { },
-                            )
-                        }
-                    },
-                    modifier = Modifier.matchParentSize()
-                )
+                if (gameData != null) {
+                    ImageWithGradient(
+                        thumbnail = gameData.thumbnail,
+                        content = {
+                            with(gameData) {
+                                ImageContent(
+                                    gameTitle = gameTitle,
+                                    lowestPrice = lowestPrice,
+                                    dateLowestPrice = dateLowestPrice,
+                                    isFavorite = isFavorite,
+                                    onFavoriteSelected = { gameDetailsViewModel.refreshFavoriteMovie() },
+                                )
+                            }
+                        },
+                        modifier = Modifier.matchParentSize()
+                    )
+                }
             }
             Text(
                 modifier = Modifier

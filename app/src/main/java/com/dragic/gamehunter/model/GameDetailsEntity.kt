@@ -1,9 +1,11 @@
 package com.dragic.gamehunter.model
 
 data class GameDetailsEntity(
+    val id: Int,
     val info: GameInfo,
     val cheapestPrice: GameCheapestPrice,
     val deals: List<GameDetailsDeal>,
+    val isFavorite: Boolean,
 )
 
 data class GameInfo(

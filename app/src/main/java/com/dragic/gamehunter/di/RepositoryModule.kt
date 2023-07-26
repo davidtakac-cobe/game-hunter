@@ -1,5 +1,7 @@
 package com.dragic.gamehunter.di
 
+import app.cash.sqldelight.db.SqlDriver
+import com.dragic.gamehunter.GameHunterDatabase
 import com.dragic.gamehunter.networking.CheapSharkApi
 import com.dragic.gamehunter.repository.DealRepository
 import com.dragic.gamehunter.repository.DealRepositoryImpl
@@ -15,6 +17,6 @@ object RepositoryModule {
 
     @Singleton
     @Provides
-    fun provideRepository(cheapSharkApi: CheapSharkApi): DealRepository =
-        DealRepositoryImpl(cheapSharkApi)
+    fun provideRepository(cheapSharkApi: CheapSharkApi, driver: SqlDriver): DealRepository =
+        DealRepositoryImpl(cheapSharkApi, GameHunterDatabase(driver))
 }

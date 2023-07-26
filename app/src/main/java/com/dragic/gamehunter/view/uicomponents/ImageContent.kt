@@ -12,7 +12,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.outlined.Favorite
+import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -38,7 +38,7 @@ fun ImageContent(
     modifier: Modifier = Modifier,
 ) {
     Column(modifier = modifier) {
-        Spacer(modifier = Modifier.size(148.dp))
+        Spacer(modifier = Modifier.size(128.dp))
         Text(
             text = gameTitle,
             style = Typography.titleMedium,
@@ -85,7 +85,7 @@ fun ImageContent(
                 .clickable { onFavoriteSelected() }
         ) {
             Image(
-                imageVector = if (isFavorite) Icons.Filled.Favorite else Icons.Outlined.Favorite,
+                imageVector = if (isFavorite) Icons.Filled.Favorite else Icons.Outlined.FavoriteBorder,
                 contentDescription = stringResource(id = R.string.favorite_icon),
                 modifier = Modifier.align(Alignment.Center)
             )

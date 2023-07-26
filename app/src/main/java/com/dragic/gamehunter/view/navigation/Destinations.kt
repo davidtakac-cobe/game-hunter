@@ -30,7 +30,7 @@ object Details : Destinations {
     override val icon: ImageVector = Icons.Filled.Info
     override val route: String = "details"
     override val text: String = "Details"
-    const val detailsTypeArg = "deal_id"
+    private const val detailsTypeArg = "deal_id"
     val routeWithArgs = "$route/{$detailsTypeArg}"
     val arguments = listOf(
         navArgument(detailsTypeArg) { type = NavType.IntType }

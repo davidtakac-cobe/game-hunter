@@ -12,6 +12,7 @@ import com.dragic.gamehunter.view.favorites.FavoriteGameViewState
 import com.dragic.gamehunter.view.gamedetails.DealDetailsViewState
 import com.dragic.gamehunter.view.gamedetails.ImageContentViewState
 import com.dragic.gamehunter.view.home.DealViewState
+import gamehunterdb.GameEntity
 import kotlin.math.roundToInt
 
 fun DealEntity.toDealViewState(): DealViewState =
@@ -28,11 +29,12 @@ fun DealEntity.toDealViewState(): DealViewState =
 
 fun GameDetailsEntity.toImageContentViewState(): ImageContentViewState =
     ImageContentViewState(
+        id = id,
         gameTitle = info.title,
         thumbnail = info.thumbnail,
         lowestPrice = "${cheapestPrice.price} $",
         dateLowestPrice = getDateString(cheapestPrice.date),
-        isFavorite = false,
+        isFavorite = isFavorite,
     )
 
 fun GameDetailsDeal.toDealDetailsViewState(): DealDetailsViewState =
@@ -42,13 +44,6 @@ fun GameDetailsDeal.toDealDetailsViewState(): DealDetailsViewState =
         savePercentage = "-$savings% OFF",
         salePrice = "$salePrice $",
         normalPrice = "$normalPrice $",
-    )
-
-fun DealEntity.toFavoriteGameViewState(): FavoriteGameViewState =
-    FavoriteGameViewState(
-        dealId = id.toInt(),
-        gameTitle = gameTitle,
-        thumbnail = thumbnail,
     )
 
 fun DealResponse.toDealEntity() = DealEntity(
@@ -62,10 +57,12 @@ fun DealResponse.toDealEntity() = DealEntity(
     thumbnail = thumbnail
 )
 
-fun GameDetailsResponse.toGameDetailsEntity() = GameDetailsEntity(
+fun GameDetailsResponse.toGameDetailsEntity(id: Int) = GameDetailsEntity(
+    id = id,
     info = GameInfo(info.title, info.thumbnail),
     cheapestPrice = GameCheapestPrice(cheapestPrice.price, cheapestPrice.date),
     deals = deals.map { it.toGameDetailsDeal() },
+    isFavorite = false,
 )
 
 fun DealDetailsResponse.toGameDetailsDeal() = GameDetailsDeal(
@@ -74,4 +71,10 @@ fun DealDetailsResponse.toGameDetailsDeal() = GameDetailsDeal(
     salePrice = salePrice,
     normalPrice = normalPrice,
     savings = savings.toDouble().roundToInt(),
+)
+
+fun GameEntity.toFavoriteGameViewState() = FavoriteGameViewState(
+    dealId = id.toInt(),
+    gameTitle = title,
+    thumbnail = thumbnail,
 )

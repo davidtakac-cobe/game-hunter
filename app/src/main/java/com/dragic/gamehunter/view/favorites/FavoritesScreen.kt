@@ -34,15 +34,17 @@ fun FavoritesScreen(
             text = stringResource(id = R.string.favorite_games),
             style = MaterialTheme.typography.labelLarge
         )
-        FavoriteGames(
-            favoriteGames = favoritesViewModel.dealData.value,
-            onGameClick = onGameClick,
-            modifier = Modifier
-                .padding(
-                    start = dimensionResource(id = R.dimen.favorite_game_card_horizontal_padding),
-                    top = dimensionResource(id = R.dimen.favorite_game_card_top_padding),
-                    end = dimensionResource(id = R.dimen.favorite_game_card_horizontal_padding),
-                )
-        )
+        favoritesViewModel.favoriteGames?.let {
+            FavoriteGames(
+                favoriteGames = it,
+                onGameClick = onGameClick,
+                modifier = Modifier
+                    .padding(
+                        start = dimensionResource(id = R.dimen.favorite_game_card_horizontal_padding),
+                        top = dimensionResource(id = R.dimen.favorite_game_card_top_padding),
+                        end = dimensionResource(id = R.dimen.favorite_game_card_horizontal_padding),
+                    )
+            )
+        }
     }
 }

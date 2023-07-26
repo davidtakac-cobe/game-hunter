@@ -32,4 +32,5 @@
     <dimen name="favorite_game_card_radius">10dp</dimen>
     <dimen name="favorite_game_card_horizontal_padding">18dp</dimen>
     <dimen name="favorite_game_card_top_padding">8dp</dimen>
+    <dimen name="favorite_game_card_image_height">130dp</dimen>
 </resources>
