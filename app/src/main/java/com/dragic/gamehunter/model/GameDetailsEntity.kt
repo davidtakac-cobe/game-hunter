@@ -20,6 +20,8 @@ data class GameCheapestPrice(
 
 data class GameDetailsDeal(
     val storeId: String,
+    val storeName: String,
+    val storeLogo: String,
     val dealId: String,
     val salePrice: String,
     val normalPrice: String,

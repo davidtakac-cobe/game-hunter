@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.UriHandler
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -24,6 +25,7 @@ import com.dragic.gamehunter.viewmodel.GameDetailsViewModel
 fun GameDetailsScreen(
     modifier: Modifier = Modifier,
     gameDetailsViewModel: GameDetailsViewModel,
+    uriHandler: UriHandler,
 ) {
     val gameData = gameDetailsViewModel.gameData
     val dealData = gameDetailsViewModel.dealData
@@ -64,7 +66,7 @@ fun GameDetailsScreen(
             Spacer(modifier = Modifier.size(8.dp))
             GameDetailsDeals(
                 deals = dealData,
-                onDealClick = {},
+                onDealClick = { uriHandler.openUri(gameDetailsViewModel.dealUriFromDealId(it)) },
                 modifier = Modifier.fillMaxWidth(),
             )
         }

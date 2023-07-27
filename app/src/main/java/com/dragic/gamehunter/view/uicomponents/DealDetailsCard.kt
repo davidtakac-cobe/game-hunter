@@ -1,6 +1,5 @@
 package com.dragic.gamehunter.view.uicomponents
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.focusable
@@ -25,9 +24,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 import com.dragic.gamehunter.R
 import com.dragic.gamehunter.view.theme.CardContainerColor
 import com.dragic.gamehunter.view.theme.Green
@@ -38,7 +37,8 @@ fun DealDetailsCard(
     salePrice: String,
     normalPrice: String,
     savePercentage: String,
-    storeId: String,
+    storeName: String,
+    storeLogo: String,
     onDealClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -52,13 +52,13 @@ fun DealDetailsCard(
         Row(
             modifier = Modifier.fillMaxSize()
         ) {
-            Image(
+            AsyncImage(
                 modifier = Modifier
                     .padding(dimensionResource(id = R.dimen.deal_store_image_padding))
                     .size(dimensionResource(id = R.dimen.deal_store_image_size))
                     .clip(CircleShape)
                     .align(Alignment.CenterVertically),
-                painter = painterResource(id = R.drawable.steam_icon),
+                model = storeLogo,
                 contentDescription = stringResource(id = R.string.deal_store_image_content_description),
                 contentScale = ContentScale.Crop,
             )
@@ -70,7 +70,7 @@ fun DealDetailsCard(
                 Text(
                     modifier = Modifier
                         .align(Alignment.CenterHorizontally),
-                    text = storeId,
+                    text = storeName,
                     style = Typography.titleMedium
                 )
                 Spacer(modifier = Modifier.size(12.dp))

@@ -25,7 +25,8 @@ fun GameDetailsDeals(
                 salePrice = deal.salePrice,
                 normalPrice = deal.normalPrice,
                 savePercentage = deal.savePercentage,
-                storeId = deal.storeId,
+                storeName = deal.storeName,
+                storeLogo = deal.storeLogo,
                 onDealClick = { onDealClick(deal.dealId) },
                 modifier = Modifier
                     .padding(

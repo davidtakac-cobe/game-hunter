@@ -2,6 +2,7 @@ package com.dragic.gamehunter.view.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
@@ -47,7 +48,7 @@ fun Navigation(
             arguments = Details.arguments
         ) {
             val viewModel: GameDetailsViewModel = hiltViewModel()
-            GameDetailsScreen(gameDetailsViewModel = viewModel)
+            GameDetailsScreen(gameDetailsViewModel = viewModel, uriHandler = LocalUriHandler.current)
         }
     }
 }

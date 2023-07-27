@@ -18,6 +18,8 @@ import javax.inject.Inject
 import javax.inject.Named
 import kotlin.coroutines.CoroutineContext
 
+const val DEAL_REDIRECT_LINK_PREFIX = "https://www.cheapshark.com/redirect?dealID="
+
 @HiltViewModel
 class GameDetailsViewModel @Inject constructor(
     private val repository: DealRepository,
@@ -34,9 +36,16 @@ class GameDetailsViewModel @Inject constructor(
             repository.fetchGameDetailsData(gameId)
         }
         viewModelScope.launch(bgDispatcher) {
+            repository.fetchStoreInfo()
+        }
+        viewModelScope.launch(bgDispatcher) {
             repository.gameDetailsData(gameId).collect { gameDetails ->
                 gameData = gameDetails.toImageContentViewState()
-                dealData = gameDetails.deals.map { it.toDealDetailsViewState() }
+            }
+        }
+        viewModelScope.launch(bgDispatcher) {
+            repository.getGameDealsDetails().collect { dealDetails ->
+                dealData = dealDetails.map { it.toDealDetailsViewState() }
             }
         }
     }
@@ -53,4 +62,6 @@ class GameDetailsViewModel @Inject constructor(
             }
         }
     }
+
+    fun dealUriFromDealId(dealId: String): String = "$DEAL_REDIRECT_LINK_PREFIX$dealId"
 }
