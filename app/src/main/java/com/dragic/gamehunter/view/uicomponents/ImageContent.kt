@@ -24,7 +24,6 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.dragic.gamehunter.R
 import com.dragic.gamehunter.view.theme.Typography
 
@@ -38,46 +37,46 @@ fun ImageContent(
     modifier: Modifier = Modifier,
 ) {
     Column(modifier = modifier) {
-        Spacer(modifier = Modifier.size(128.dp))
+        Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.details_content_top_padding)))
         Text(
             text = gameTitle,
             style = Typography.titleMedium,
             color = MaterialTheme.colorScheme.onPrimary,
-            modifier = Modifier.padding(horizontal = dimensionResource(id = R.dimen.details_title_text_horizontal_margin))
+            modifier = Modifier.padding(horizontal = dimensionResource(id = R.dimen.details_title_text_horizontal_padding))
         )
-        Spacer(modifier = Modifier.size(4.dp))
+        Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.details_text_padding_small)))
         Row() {
             Text(
                 text = stringResource(id = R.string.lowest_price_text),
                 style = Typography.labelSmall,
                 color = MaterialTheme.colorScheme.onPrimary,
-                modifier = Modifier.padding(start = dimensionResource(id = R.dimen.details_title_text_horizontal_margin))
+                modifier = Modifier.padding(start = dimensionResource(id = R.dimen.details_title_text_horizontal_padding))
             )
-            Spacer(modifier = Modifier.size(4.dp))
+            Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.details_text_padding_small)))
             Text(
                 text = lowestPrice,
                 style = Typography.labelSmall.copy(fontWeight = FontWeight.Bold),
                 color = MaterialTheme.colorScheme.onPrimary,
             )
-            Spacer(modifier = Modifier.size(4.dp))
+            Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.details_text_padding_small)))
             Text(
                 text = stringResource(id = R.string.details_text_on),
                 style = Typography.labelSmall,
                 color = MaterialTheme.colorScheme.onPrimary,
             )
-            Spacer(modifier = Modifier.size(4.dp))
+            Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.details_text_padding_small)))
             Text(
                 text = dateLowestPrice,
                 style = Typography.labelSmall.copy(fontWeight = FontWeight.Bold),
                 color = MaterialTheme.colorScheme.onPrimary,
             )
         }
-        Spacer(modifier = Modifier.size(20.dp))
+        Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.details_content_end_padding)))
         Box(
             modifier = Modifier
                 .padding(
-                    start = dimensionResource(id = R.dimen.favorite_icon_start_margin),
-                    bottom = dimensionResource(id = R.dimen.favorite_icon_bottom_margin)
+                    start = dimensionResource(id = R.dimen.favorite_icon_start_padding),
+                    bottom = dimensionResource(id = R.dimen.favorite_icon_bottom_padding)
                 )
                 .size(dimensionResource(id = R.dimen.favorite_box_size))
                 .clip(CircleShape)

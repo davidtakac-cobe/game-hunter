@@ -1,6 +1,5 @@
 package com.dragic.gamehunter.view
 
-import android.util.Log
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.tween
@@ -40,13 +39,10 @@ fun GameHunterApp() {
 
     Scaffold(
         topBar = {
-            if (route == Favorites.route || route == Details.route) {
+            if (route == Favorites.route || route == Details.routeWithArgs) {
                 TopBar(
                     currentScreenRoute = route,
-                    onSortCLicked = {
-                        Log.d("TOP_BAR", "on sort clicked")
-                        viewModel.setShowDialog(true)
-                    },
+                    onSortCLicked = { viewModel.setShowDialog(true) },
                     onArrowBackClicked = { navController.navigateUp() },
                 )
             }

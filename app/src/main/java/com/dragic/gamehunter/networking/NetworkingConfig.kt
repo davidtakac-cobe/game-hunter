@@ -12,6 +12,7 @@ import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
 val httpClient: HttpClient = HttpClient(CIO) {
+
     install(Logging) {
         logger = object : Logger {
             override fun log(message: String) {
@@ -20,6 +21,7 @@ val httpClient: HttpClient = HttpClient(CIO) {
         }
         level = LogLevel.ALL
     }
+
     install(ContentNegotiation) {
         json(
             Json {
@@ -29,6 +31,7 @@ val httpClient: HttpClient = HttpClient(CIO) {
             }
         )
     }
+
     install(ResponseObserver) {
         onResponse { response ->
             Log.d("HTTP status", "${response.status.value}")

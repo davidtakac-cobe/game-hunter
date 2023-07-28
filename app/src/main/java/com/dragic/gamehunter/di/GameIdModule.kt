@@ -15,6 +15,7 @@ annotation class GameId
 @Module
 @InstallIn(ViewModelComponent::class)
 object GameIdModule {
+
     @Provides
     @GameId
     @ViewModelScoped

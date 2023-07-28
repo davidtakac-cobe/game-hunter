@@ -30,12 +30,12 @@ fun GameDetailsDeals(
                 onDealClick = { onDealClick(deal.dealId) },
                 modifier = Modifier
                     .padding(
-                        horizontal = dimensionResource(id = R.dimen.deal_details_card_padding),
-                        vertical = dimensionResource(id = R.dimen.deal_card_padding),
+                        horizontal = dimensionResource(id = R.dimen.details_deal_card_horizontal_padding),
+                        vertical = dimensionResource(id = R.dimen.details_deal_card_vertical_padding),
                     )
-                    .height(dimensionResource(id = R.dimen.deal_details_card_height))
+                    .height(dimensionResource(id = R.dimen.details_deal_card_height))
                     .fillMaxWidth()
-                    .clip(RoundedCornerShape(dimensionResource(id = R.dimen.deal_card_radius)))
+                    .clip(RoundedCornerShape(dimensionResource(id = R.dimen.details_deal_card_radius)))
             )
         }
     }

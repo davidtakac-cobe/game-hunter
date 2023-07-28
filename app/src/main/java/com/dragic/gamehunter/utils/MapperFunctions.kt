@@ -18,38 +18,36 @@ import gamehunterdb.GameEntity
 import kotlin.math.roundToInt
 
 const val BASE_STORE_LOGO_URL = "https://www.cheapshark.com"
-fun DealEntity.toDealViewState(): DealViewState =
-    DealViewState(
-        id = id.toInt(),
-        gameTitle = gameTitle,
-        salePrice = "$salePrice $",
-        normalPrice = "$normalPrice $",
-        savePercentage = "-$savings% OFF",
-        steamRating = steamRating,
-        dealRating = dealRating,
-        thumbnail = thumbnail,
-    )
 
-fun GameDetailsEntity.toImageContentViewState(): ImageContentViewState =
-    ImageContentViewState(
-        id = id,
-        gameTitle = info.title,
-        thumbnail = info.thumbnail,
-        lowestPrice = "${cheapestPrice.price} $",
-        dateLowestPrice = getDateString(cheapestPrice.date),
-        isFavorite = isFavorite,
-    )
+fun DealEntity.toDealViewState() = DealViewState(
+    id = id.toInt(),
+    gameTitle = gameTitle,
+    salePrice = "$salePrice $",
+    normalPrice = "$normalPrice $",
+    savePercentage = "-$savings% OFF",
+    steamRating = steamRating,
+    dealRating = dealRating,
+    thumbnail = thumbnail,
+)
 
-fun GameDetailsDeal.toDealDetailsViewState(): DealDetailsViewState =
-    DealDetailsViewState(
-        dealId = dealId,
-        storeId = storeId,
-        storeName = storeName,
-        storeLogo = "$BASE_STORE_LOGO_URL$storeLogo",
-        savePercentage = "-$savings% OFF",
-        salePrice = "$salePrice $",
-        normalPrice = "$normalPrice $",
-    )
+fun GameDetailsEntity.toImageContentViewState() = ImageContentViewState(
+    id = id,
+    gameTitle = info.title,
+    thumbnail = info.thumbnail,
+    lowestPrice = "${cheapestPrice.price} $",
+    dateLowestPrice = getDateString(cheapestPrice.date),
+    isFavorite = isFavorite,
+)
+
+fun GameDetailsDeal.toDealDetailsViewState() = DealDetailsViewState(
+    dealId = dealId,
+    storeId = storeId,
+    storeName = storeName,
+    storeLogo = "$BASE_STORE_LOGO_URL$storeLogo",
+    savePercentage = "-$savings% OFF",
+    salePrice = "$salePrice $",
+    normalPrice = "$normalPrice $",
+)
 
 fun DealResponse.toDealEntity() = DealEntity(
     id = id,

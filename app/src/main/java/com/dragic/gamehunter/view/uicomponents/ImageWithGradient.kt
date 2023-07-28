@@ -29,7 +29,7 @@ fun ImageWithGradient(
         ) {
             AsyncImage(
                 model = thumbnail,
-                contentDescription = stringResource(id = R.string.deal_image_content_description),
+                contentDescription = stringResource(id = R.string.details_image_content_description),
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.matchParentSize()
             )

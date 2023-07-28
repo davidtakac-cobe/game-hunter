@@ -33,6 +33,7 @@ fun TopBar(
     onArrowBackClicked: () -> Unit,
 ) {
     val searchActivated = rememberSaveable { mutableStateOf(false) }
+
     Box(
         modifier = Modifier
             .fillMaxWidth()

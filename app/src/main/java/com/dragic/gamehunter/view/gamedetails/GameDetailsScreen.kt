@@ -13,7 +13,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.UriHandler
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import com.dragic.gamehunter.R
 import com.dragic.gamehunter.view.theme.GameHunterTheme
 import com.dragic.gamehunter.view.theme.Typography
@@ -29,6 +28,7 @@ fun GameDetailsScreen(
 ) {
     val gameData = gameDetailsViewModel.gameData
     val dealData = gameDetailsViewModel.dealData
+
     GameHunterTheme {
         Column {
             Box(
@@ -57,13 +57,13 @@ fun GameDetailsScreen(
             Text(
                 modifier = Modifier
                     .padding(
-                        start = dimensionResource(id = R.dimen.home_top_deals_margin),
-                        end = dimensionResource(id = R.dimen.home_top_deals_margin)
+                        start = dimensionResource(id = R.dimen.details_text_padding),
+                        end = dimensionResource(id = R.dimen.details_text_padding)
                     ),
                 text = stringResource(id = R.string.featured_deals),
                 style = Typography.labelLarge
             )
-            Spacer(modifier = Modifier.size(8.dp))
+            Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.details_text_padding)))
             GameDetailsDeals(
                 deals = dealData,
                 onDealClick = { uriHandler.openUri(gameDetailsViewModel.dealUriFromDealId(it)) },

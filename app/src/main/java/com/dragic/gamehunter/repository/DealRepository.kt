@@ -42,7 +42,6 @@ interface DealRepository {
     suspend fun dealDataBySavings(): List<DealEntity>
 
     suspend fun dealDataByReviews(): List<DealEntity>
-
 }
 
 @Singleton
@@ -54,6 +53,7 @@ class DealRepositoryImpl @Inject constructor(
     private val queries = database.gameEntityQueries
     private val gameDetails = MutableSharedFlow<GameDetailsEntity>()
     private val storeInfo = MutableSharedFlow<List<StoreInfoEntity>>()
+
     override suspend fun dealData(): List<DealEntity> = cheapSharkApi.getAllDeals().map { it.toDealEntity() }
 
     override fun gameDetailsData(gameId: Int): Flow<GameDetailsEntity> =
@@ -68,6 +68,7 @@ class DealRepositoryImpl @Inject constructor(
     override suspend fun fetchGameDetailsData(gameId: Int) = gameDetails.emit(cheapSharkApi.getGameDetails(gameId).toGameDetailsEntity(id = gameId))
 
     override fun getFavoriteGames(): Flow<List<GameEntity>> = queries.getAllGames().asFlow().mapToList(Dispatchers.IO)
+
     override fun getGameDealsDetails(): Flow<List<GameDetailsDeal>> =
         combine(
             gameDetails,

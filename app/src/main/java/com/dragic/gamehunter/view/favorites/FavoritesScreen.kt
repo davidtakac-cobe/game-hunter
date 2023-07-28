@@ -11,7 +11,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import com.dragic.gamehunter.R
 import com.dragic.gamehunter.viewmodel.FavoritesViewModel
 
@@ -24,12 +23,12 @@ fun FavoritesScreen(
     Column(
         modifier = modifier.fillMaxSize()
     ) {
-        Spacer(modifier = Modifier.size(size = 20.dp))
+        Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.favorites_text_top_padding)))
         Text(
             modifier = Modifier
                 .padding(
-                    start = dimensionResource(id = R.dimen.favorites_games_top_margin),
-                    end = dimensionResource(id = R.dimen.favorites_games_top_margin)
+                    start = dimensionResource(id = R.dimen.favorites_text_label_top_padding),
+                    end = dimensionResource(id = R.dimen.favorites_text_label_end_padding)
                 ),
             text = stringResource(id = R.string.favorite_games),
             style = MaterialTheme.typography.labelLarge
@@ -39,9 +38,9 @@ fun FavoritesScreen(
             onGameClick = onGameClick,
             modifier = Modifier
                 .padding(
-                    start = dimensionResource(id = R.dimen.favorite_game_card_horizontal_padding),
-                    top = dimensionResource(id = R.dimen.favorite_game_card_top_padding),
-                    end = dimensionResource(id = R.dimen.favorite_game_card_horizontal_padding),
+                    start = dimensionResource(id = R.dimen.favorites_game_card_horizontal_padding),
+                    top = dimensionResource(id = R.dimen.favorites_game_card_top_padding),
+                    end = dimensionResource(id = R.dimen.favorites_game_card_horizontal_padding),
                 )
         )
     }

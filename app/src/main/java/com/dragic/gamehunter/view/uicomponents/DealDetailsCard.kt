@@ -46,7 +46,7 @@ fun DealDetailsCard(
         modifier = modifier
             .clickable { onDealClick() }
             .focusable(),
-        shape = RoundedCornerShape(dimensionResource(id = R.dimen.deal_card_radius)),
+        shape = RoundedCornerShape(dimensionResource(id = R.dimen.details_deal_card_radius)),
         colors = CardDefaults.cardColors(containerColor = CardContainerColor)
     ) {
         Row(
@@ -54,8 +54,8 @@ fun DealDetailsCard(
         ) {
             AsyncImage(
                 modifier = Modifier
-                    .padding(dimensionResource(id = R.dimen.deal_store_image_padding))
-                    .size(dimensionResource(id = R.dimen.deal_store_image_size))
+                    .padding(dimensionResource(id = R.dimen.details_deal_card_store_image_padding))
+                    .size(dimensionResource(id = R.dimen.details_deal_card_store_image_size))
                     .clip(CircleShape)
                     .align(Alignment.CenterVertically),
                 model = storeLogo,
@@ -84,7 +84,7 @@ fun DealDetailsCard(
                                 color = Green,
                                 shape = RectangleShape
                             )
-                            .padding(horizontal = dimensionResource(id = R.dimen.deal_save_percentage_padding)),
+                            .padding(horizontal = dimensionResource(id = R.dimen.deal_card_save_percentage_padding)),
                         text = savePercentage,
                         style = Typography.bodyMedium
                     )

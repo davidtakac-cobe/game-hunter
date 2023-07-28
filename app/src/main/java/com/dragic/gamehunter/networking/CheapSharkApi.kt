@@ -26,6 +26,7 @@ private const val SAVINGS = "Savings"
 private const val REVIEWS = "Reviews"
 
 class CheapSharkApiImpl @Inject constructor(private val client: HttpClient) : CheapSharkApi {
+
     override suspend fun getAllDeals(): List<DealResponse> = client.get("$BASE_URL/deals").body()
 
     override suspend fun getGameDetails(gameId: Int): GameDetailsResponse = client.get("$BASE_URL/games?id=$gameId").body()

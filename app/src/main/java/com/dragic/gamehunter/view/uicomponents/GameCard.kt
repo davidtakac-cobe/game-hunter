@@ -43,9 +43,9 @@ fun GameCard(
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
                     .padding(
-                        top = dimensionResource(id = R.dimen.deal_card_title_top_margin),
-                        start = dimensionResource(id = R.dimen.deal_card_title_horizontal_padding),
-                        end = dimensionResource(id = R.dimen.deal_card_title_horizontal_padding),
+                        top = dimensionResource(id = R.dimen.game_card_title_top_padding),
+                        start = dimensionResource(id = R.dimen.game_card_title_horizontal_padding),
+                        end = dimensionResource(id = R.dimen.game_card_title_horizontal_padding),
                     ),
                 text = gameTitle,
                 style = Typography.bodyMedium,

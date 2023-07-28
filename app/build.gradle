@@ -55,45 +55,70 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.10.1'
-    implementation platform('org.jetbrains.kotlin:kotlin-bom:1.8.0')
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
-    implementation 'androidx.activity:activity-compose:1.7.2'
-    implementation platform('androidx.compose:compose-bom:2022.10.00')
-    implementation 'androidx.compose.ui:ui'
-    implementation 'androidx.compose.ui:ui-graphics'
-    implementation 'androidx.compose.ui:ui-tooling-preview'
-    implementation 'androidx.compose.material3:material3'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-    androidTestImplementation platform('androidx.compose:compose-bom:2022.10.00')
-    androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
-    debugImplementation 'androidx.compose.ui:ui-tooling'
-    debugImplementation 'androidx.compose.ui:ui-test-manifest'
-    implementation 'androidx.navigation:navigation-compose:2.6.0'
-    implementation 'com.google.dagger:hilt-android:2.47'
-    kapt 'com.google.dagger:hilt-compiler:2.47'
-    kapt "androidx.hilt:hilt-compiler:1.0.0"
-    implementation "androidx.activity:activity-ktx:1.2.2"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
-    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
-    implementation "androidx.hilt:hilt-navigation-compose:1.0.0"
-    implementation "io.ktor:ktor-client-core:2.3.2"
-    implementation "io.ktor:ktor-client-cio:2.3.2"
-    implementation 'io.ktor:ktor-client-logging-jvm:2.3.2'
-    implementation 'io.ktor:ktor-client-android:2.3.2'
-    implementation "io.ktor:ktor-client-content-negotiation:2.3.2"
-    implementation "io.ktor:ktor-serialization-kotlinx-json:2.3.2"
-    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1"
-    implementation "io.coil-kt:coil-compose:2.2.1"
-    implementation "app.cash.sqldelight:android-driver:2.0.0-rc02"
-    implementation "app.cash.sqldelight:coroutines-extensions:2.0.0-rc02"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1"
+    //Platform implementations
+    def kotlin_bom_version = "1.8.0"
+    def compose_bom_version = "2022.10.00"
+    implementation platform("org.jetbrains.kotlin:kotlin-bom:$kotlin_bom_version")
+    implementation platform("androidx.compose:compose-bom:$compose_bom_version")
+
+    //Core
+    def core_ktx_version = "1.10.1"
+    implementation "androidx.core:core-ktx:$core_ktx_version"
+
+    //Activity
+    def activity_compose_version = "1.7.2"
+    implementation "androidx.activity:activity-compose:$activity_compose_version"
+
+    //Lifecycle
+    def lifecycle_extensions_version = "2.2.0"
+    def lifecycle_runtime_ktx_version = "2.6.1"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_extensions_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_runtime_ktx_version"
+
+    //Coroutines
+    def coroutines_version = "1.7.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+
+    //Compose
+    def compose_navigation_version = "2.6.0"
+    implementation "androidx.compose.ui:ui"
+    implementation "androidx.compose.ui:ui-graphics"
+    implementation "androidx.compose.ui:ui-tooling-preview"
+    implementation "androidx.compose.material3:material3"
+    implementation "androidx.navigation:navigation-compose:$compose_navigation_version"
+    debugImplementation "androidx.compose.ui:ui-tooling"
+    debugImplementation "androidx.compose.ui:ui-test-manifest"
+
+    //Dagger hilt
+    def dagger_hilt_version = "2.47"
+    def hilt_navigation_version = "1.0.0"
+    def hilt_compiler_version = "1.0.0"
+    implementation "com.google.dagger:hilt-android:$dagger_hilt_version"
+    implementation "androidx.hilt:hilt-navigation-compose:$hilt_navigation_version"
+    kapt "com.google.dagger:hilt-compiler:$dagger_hilt_version"
+    kapt "androidx.hilt:hilt-compiler:$hilt_compiler_version"
+
+    //Ktor
+    def ktor_version = "2.3.2"
+    implementation "io.ktor:ktor-client-core:$ktor_version"
+    implementation "io.ktor:ktor-client-cio:$ktor_version"
+    implementation "io.ktor:ktor-client-logging-jvm:$ktor_version"
+    implementation "io.ktor:ktor-client-content-negotiation:$ktor_version"
+    implementation "io.ktor:ktor-serialization-kotlinx-json:$ktor_version"
+
+    //Serialization
+    def serialization_version = "1.5.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:$serialization_version"
+
+    //Coil
+    def coil_version = "2.2.1"
+    implementation "io.coil-kt:coil-compose:$coil_version"
+
+    //SQL delight
+    def sql_delight_version = "2.0.0-rc02"
+    implementation "app.cash.sqldelight:android-driver:$sql_delight_version"
+    implementation "app.cash.sqldelight:coroutines-extensions:$sql_delight_version"
 }
 
 sqldelight {

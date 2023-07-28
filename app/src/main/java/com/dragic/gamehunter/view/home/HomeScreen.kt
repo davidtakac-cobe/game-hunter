@@ -40,13 +40,12 @@ fun HomeScreen(
             Text(
                 modifier = Modifier
                     .padding(
-                        start = dimensionResource(id = R.dimen.home_top_deals_margin),
-                        end = dimensionResource(id = R.dimen.home_top_deals_margin)
+                        horizontal = dimensionResource(id = R.dimen.home_top_deals_label_horizontal_padding),
                     ),
                 text = stringResource(id = R.string.top_deals),
                 style = MaterialTheme.typography.labelLarge
             )
-            Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.common_text_padding)))
+            Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.text_padding_medium)))
             HomeDeals(
                 deals = homeViewModel.dealData,
                 onDealClick = { id ->
@@ -64,7 +63,7 @@ fun HomeScreen(
                 ) {
                     Column(
                         modifier = Modifier
-                            .padding(dimensionResource(id = R.dimen.dialog_box_padding))
+                            .padding(dimensionResource(id = R.dimen.home_dialog_box_padding))
                             .fillMaxWidth(),
                         verticalArrangement = Arrangement.Center,
                         horizontalAlignment = Alignment.CenterHorizontally,
@@ -73,7 +72,7 @@ fun HomeScreen(
                             text = stringResource(id = R.string.home_dialog_sort_by),
                             style = MaterialTheme.typography.labelLarge,
                         )
-                        Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.common_text_padding)))
+                        Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.text_padding_medium)))
                         Text(
                             text = stringResource(id = R.string.home_dialog_deal_rating),
                             modifier = Modifier
@@ -83,7 +82,7 @@ fun HomeScreen(
                                     homeViewModel.setShowDialog(false)
                                 },
                         )
-                        Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.common_text_padding)))
+                        Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.text_padding_medium)))
                         Text(
                             text = stringResource(id = R.string.home_dialog_savings),
                             modifier = Modifier
@@ -93,7 +92,7 @@ fun HomeScreen(
                                     homeViewModel.setShowDialog(false)
                                 }
                         )
-                        Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.common_text_padding)))
+                        Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.text_padding_medium)))
                         Text(
                             text = stringResource(id = R.string.home_dialog_reviews),
                             modifier = Modifier
@@ -103,7 +102,7 @@ fun HomeScreen(
                                     homeViewModel.setShowDialog(false)
                                 }
                         )
-                        Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.common_text_padding)))
+                        Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.text_padding_medium)))
                     }
                 }
             }

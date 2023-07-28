@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -21,14 +20,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.dragic.gamehunter.R
@@ -59,25 +55,25 @@ fun DealCard(
             modifier = Modifier.fillMaxSize()
         ) {
             AsyncImage(
-                modifier = Modifier.width(dimensionResource(id = R.dimen.deal_image_width)),
+                modifier = Modifier.width(dimensionResource(id = R.dimen.deal_card_image_width)),
                 model = thumbnail,
                 contentDescription = stringResource(id = R.string.deal_image_content_description),
                 contentScale = ContentScale.Crop
             )
-            Spacer(modifier = Modifier.size(8.dp))
+            Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.deal_card_image_end_padding)))
             Column(
                 modifier = Modifier.fillMaxHeight()
             ) {
                 Text(
                     modifier = Modifier
                         .align(Alignment.CenterHorizontally)
-                        .padding(top = dimensionResource(id = R.dimen.deal_card_title_top_margin)),
+                        .padding(top = dimensionResource(id = R.dimen.deal_card_title_top_padding)),
                     text = gameTitle,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                     style = Typography.titleSmall
                 )
-                Spacer(modifier = Modifier.size(12.dp))
+                Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.deal_card_text_padding)))
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically,
@@ -106,7 +102,7 @@ fun DealCard(
                         )
                     }
                 }
-                Spacer(modifier = Modifier.size(12.dp))
+                Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.deal_card_text_padding)))
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween
@@ -117,18 +113,18 @@ fun DealCard(
                                 color = Green,
                                 shape = RectangleShape
                             )
-                            .padding(horizontal = dimensionResource(id = R.dimen.deal_save_percentage_padding)),
+                            .padding(horizontal = dimensionResource(id = R.dimen.deal_card_save_percentage_padding)),
                         text = savePercentage,
                         style = Typography.bodyMedium
                     )
                     Row(
-                        modifier = Modifier.padding(horizontal = 8.dp)
+                        modifier = Modifier.padding(horizontal = dimensionResource(id = R.dimen.deal_card_text_padding_horizontal))
                     ) {
                         Text(
                             text = normalPrice,
                             style = Typography.bodySmall
                         )
-                        Spacer(modifier = Modifier.size(8.dp))
+                        Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.deal_card_text_padding_small)))
                         Text(
                             text = salePrice,
                             style = Typography.bodyMedium
@@ -138,24 +134,4 @@ fun DealCard(
             }
         }
     }
-}
-
-@Preview
-@Composable
-fun DealCardPreview() {
-    DealCard(
-        gameTitle = "Counter:Strike Global Offensive",
-        salePrice = "3.50 $",
-        normalPrice = "5.0 $",
-        savePercentage = "-15% OFF",
-        steamRating = "5.0",
-        dealRating = "5.0",
-        thumbnail = "",
-        onDealClick = { },
-        modifier = Modifier
-            .height(dimensionResource(id = R.dimen.deal_card_height))
-            .fillMaxWidth()
-            .padding(horizontal = dimensionResource(id = R.dimen.deal_card_padding))
-            .clip(RoundedCornerShape(dimensionResource(id = R.dimen.deal_card_radius)))
-    )
 }
