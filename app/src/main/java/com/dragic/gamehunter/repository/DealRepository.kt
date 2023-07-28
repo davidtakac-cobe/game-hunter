@@ -37,6 +37,12 @@ interface DealRepository {
 
     fun getGameDealsDetails(): Flow<List<GameDetailsDeal>>
 
+    suspend fun dealDataByDealRating(): List<DealEntity>
+
+    suspend fun dealDataBySavings(): List<DealEntity>
+
+    suspend fun dealDataByReviews(): List<DealEntity>
+
 }
 
 @Singleton
@@ -75,6 +81,12 @@ class DealRepositoryImpl @Inject constructor(
                 )
             }
         }
+
+    override suspend fun dealDataByDealRating(): List<DealEntity> = cheapSharkApi.getAllDealsByDealRating().map { it.toDealEntity() }
+
+    override suspend fun dealDataBySavings(): List<DealEntity> = cheapSharkApi.getAllDealsBySavings().map { it.toDealEntity() }
+
+    override suspend fun dealDataByReviews(): List<DealEntity> = cheapSharkApi.getAllDealsByReviews().map { it.toDealEntity() }
 
     override suspend fun removeGameById(gameId: Long) = queries.deleteGameById(gameId)
 

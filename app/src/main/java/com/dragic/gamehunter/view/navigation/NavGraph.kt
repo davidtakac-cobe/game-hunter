@@ -31,7 +31,8 @@ fun Navigation(
                 onDealClick = { dealId ->
                     navController.navigateToDetails(dealId)
                 },
-                homeViewModel = viewModel
+                homeViewModel = viewModel,
+                dialogState = viewModel.sortDialogState
             )
         }
         composable(route = Favorites.route) {

@@ -33,4 +33,8 @@
     <dimen name="favorite_game_card_horizontal_padding">18dp</dimen>
     <dimen name="favorite_game_card_top_padding">8dp</dimen>
     <dimen name="favorite_game_card_image_height">130dp</dimen>
+    <dimen name="common_text_padding">8dp</dimen>
+    <dimen name="text_padding_small">4dp</dimen>
+    <dimen name="dialog_box_padding">16dp</dimen>
+    <dimen name="home_text_padding">20dp</dimen>
 </resources>

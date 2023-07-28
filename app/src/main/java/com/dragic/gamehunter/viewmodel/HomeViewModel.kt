@@ -1,7 +1,8 @@
 package com.dragic.gamehunter.viewmodel
 
-import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dragic.gamehunter.di.BG_DISPATCHER
@@ -19,11 +20,36 @@ class HomeViewModel @Inject constructor(
     private val repository: DealRepository,
     @Named(BG_DISPATCHER) private val bgDispatcher: CoroutineContext,
 ) : ViewModel() {
-    val dealData: MutableState<List<DealViewState>> = mutableStateOf(emptyList())
+    var dealData by mutableStateOf<List<DealViewState>>(emptyList())
+        private set
+
+    var sortDialogState by mutableStateOf(false)
 
     init {
         viewModelScope.launch(bgDispatcher) {
-            dealData.value = repository.dealData().sortedByDescending { it.dealRating.toDouble() }.map { it.toDealViewState() }
+            dealData = repository.dealData().map { it.toDealViewState() }
+        }
+    }
+
+    fun setShowDialog(showDialog: Boolean) {
+        sortDialogState = showDialog
+    }
+
+    fun fetchDealsByDealRating() {
+        viewModelScope.launch(bgDispatcher) {
+            dealData = repository.dealDataByDealRating().map { it.toDealViewState() }
+        }
+    }
+
+    fun fetchDealsBySavings() {
+        viewModelScope.launch(bgDispatcher) {
+            dealData = repository.dealDataBySavings().map { it.toDealViewState() }
+        }
+    }
+
+    fun fetchDealsByReviews() {
+        viewModelScope.launch(bgDispatcher) {
+            dealData = repository.dealDataByReviews().map { it.toDealViewState() }
         }
     }
 }

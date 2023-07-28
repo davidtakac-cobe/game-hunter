@@ -14,4 +14,8 @@
     <string name="favorite_games">Favorite games:</string>
     <string name="favorite_game_content_description">Favorite game image</string>
     <string name="deal_card_steam_rating_label">"Steam rating: "</string>
+    <string name="home_dialog_sort_by">Sort by:</string>
+    <string name="home_dialog_deal_rating">Deal rating</string>
+    <string name="home_dialog_savings">Savings</string>
+    <string name="home_dialog_reviews">Reviews</string>
 </resources>

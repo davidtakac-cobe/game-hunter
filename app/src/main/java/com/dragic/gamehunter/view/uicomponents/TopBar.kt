@@ -29,7 +29,8 @@ import com.dragic.gamehunter.view.theme.Typography
 @Composable
 fun TopBar(
     currentScreenRoute: String?,
-    onArrowBackClicked: () -> Unit
+    onSortCLicked: () -> Unit,
+    onArrowBackClicked: () -> Unit,
 ) {
     val searchActivated = rememberSaveable { mutableStateOf(false) }
     Box(
@@ -77,7 +78,7 @@ fun TopBar(
                 )
             }
             IconButton(
-                onClick = { },
+                onClick = { onSortCLicked() },
                 modifier = Modifier
                     .padding(dimensionResource(id = R.dimen.top_bar_icon_padding))
                     .size(dimensionResource(id = R.dimen.top_bar_icon_size))

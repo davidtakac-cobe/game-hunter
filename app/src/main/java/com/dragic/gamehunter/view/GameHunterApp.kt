@@ -1,5 +1,6 @@
 package com.dragic.gamehunter.view
 
+import android.util.Log
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.tween
@@ -16,13 +17,16 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.dragic.gamehunter.view.navigation.Details
+import com.dragic.gamehunter.view.navigation.Favorites
 import com.dragic.gamehunter.view.navigation.Home
 import com.dragic.gamehunter.view.navigation.Navigation
 import com.dragic.gamehunter.view.uicomponents.BottomBar
 import com.dragic.gamehunter.view.uicomponents.TopBar
+import com.dragic.gamehunter.viewmodel.HomeViewModel
 
 private const val TWEEN_VISIBILITY_ANIMATION_DURATION = 500
 
@@ -32,11 +36,19 @@ fun GameHunterApp() {
     val navController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val route = navBackStackEntry?.destination?.route ?: Home.route
+    val viewModel: HomeViewModel = hiltViewModel()
 
     Scaffold(
         topBar = {
-            TopBar(currentScreenRoute = route) {
-                navController.navigateUp()
+            if (route == Favorites.route || route == Details.route) {
+                TopBar(
+                    currentScreenRoute = route,
+                    onSortCLicked = {
+                        Log.d("TOP_BAR", "on sort clicked")
+                        viewModel.setShowDialog(true)
+                    },
+                    onArrowBackClicked = { navController.navigateUp() },
+                )
             }
         },
         bottomBar = {
